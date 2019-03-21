@@ -11,33 +11,22 @@ var firstDeath = death[0];
 var alive = 0;
 var currentStatus = 0;
 var bestYear = 0;
-var nextBestYear = 0;
 var year = 0;
-for (i = 0; birth[i] < firstDeath; i++) {
-	alive += 1;
-  currentStatus += 1;
-}
 
-//for each year left in birth years, loop
-//get (length - alive) and count over what is left
-
-var lastBirths = bLength - alive;
-
-for (i = (alive - 1); i < bLength-1; i++) {
+for (i = 0; i < bLength-1; i++) {
 	
     if (birth[i] != death[year]) {
     	alive += 1;
         currentStatus += 1;
         bestYear = birth[i];
-       
-        year += 1;
     } else if (birth[i] > death[year]) {
     	year += 1;
-        alive -= 1;
+        currentStatus -= 1;
     } else {
-        nextBestYear = birth[i];
+        //nothing
     }
 }
-
-document.write(bestYear);
+document.write("Birth years: " + birth + "<br/>");
+document.write("Death years: " + death + "<br/>");
+document.write("Best year: " + bestYear);
 </script>
